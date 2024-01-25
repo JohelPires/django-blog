@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+
+<div class="content-section">
+
+    <h1>{{ post.titulo }}</h1>
+    <small>Publicado em: {{post.publicado_em}}</small>
+    <p>
+
+        <strong>{{post.intro}}</strong>
+    </p>
+    <p>{{post.conteudo}}</p>
+
+    <hr>
+
+    <h2>Comentários</h2>
+
+    {% for comentario in post.comentarios.all %}
+
+    <p><strong>{{comentario.nome}}</strong></p>
+    <small>{{comentario.publicado_em}}</small>
+
+    <p>{{comentario.conteudo}}</p>
+
+    {% empty %}
+    <p>Nenhum comentário ainda</p>
+
+    {% endfor %}
+
+    <hr>
+
+    <h2>Adicionar comentário</h2>
+
+    <form method="post" action=".">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Enviar</button>
+    </form>
+</div>
+{% endblock %}

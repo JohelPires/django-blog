@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <style>
+        img {
+            padding: 5px;
+        }
+
+        body {
+            margin: 0;
+            box-sizing: border-box;
+            background-color: rgb(216, 216, 216);
+            width: 100vw;
+
+        }
+
+        header {
+            padding: 5px 30px;
+            display: flex;
+            background-color: rgb(68, 68, 68);
+            color: white;
+        }
+
+        .card {
+
+            background-color: white;
+            box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.342);
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            width: 300px;
+            border-radius: 7px;
+        }
+
+        .card h2 {
+            margin: 0;
+        }
+
+
+        section {
+            min-height: 70vh;
+            padding: 20px 50px;
+        }
+
+        .container {
+
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        {% load static %}
+        <img src="{% static 'blog/logo.avif' %}" alt="logo" width="70px">
+        <h1>Titulo</h1>
+    </header>
+    <section>
+        {% block conteudo %}
+        {% endblock %}
+    </section>
+    <footer>
+        <p>fim</p>
+    </footer>
+</body>
+
+</html>

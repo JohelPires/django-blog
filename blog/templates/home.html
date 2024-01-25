@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+
+<!-- <p>Este é o conteúdo específico da página.</p> -->
+
+
+<div class="container">
+    {% for post in posts %}
+
+    <div class="card block">
+        <h2 class="subtitle">{{post.titulo}}</h2>
+        <small>{{post.publicado_em}}</small>
+        <p>{{post.intro}}</p>
+        <a href="{% url 'post_detail' post.slug %}">leia mais...</a>
+    </div>
+
+    {% endfor %}
+</div>
+
+{% endblock %}
